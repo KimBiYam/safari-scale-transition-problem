@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      gap: 16px;
+    }
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      border: 1px solid black;
+      position: relative;
+    }
+
+    .with-will-change {
+      will-change: transform;
+    }
+
+    .box:hover::after {
+      transform: scaleX(1);
+    }
+    .box::after {
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(24, 32, 97);
+      bottom: -10px;
+      left: 0px;
+      content: "";
+      position: absolute;
+      right: 0px;
+      transform: scaleX(0);
+      transition-duration: 200ms;
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      transition-delay: 0ms;
+      transition-property: transform;
+      pointer-events: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="box with-will-change" type="text">
+        <p>with will change</p>
+      </div>
+      <div class="box" type="text">
+        <p>without will change</p>
+      </div>
+    </div>
+  </body>
+</html>
