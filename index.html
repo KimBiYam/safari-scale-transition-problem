@@ -25,18 +25,26 @@
       will-change: transform;
     }
 
+    .with-backface-visibility {
+      backface-visibility: unset;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .with-translate3d {
+      transform: unset;
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+
     .box:hover::after {
       transform: scaleX(1);
     }
     .box::after {
-      border-bottom-width: 2px;
-      border-bottom-style: solid;
-      border-bottom-color: rgb(24, 32, 97);
+      border-bottom: 2px solid black;
       bottom: -10px;
       left: 0px;
+      right: 0px;
       content: "";
       position: absolute;
-      right: 0px;
       transform: scaleX(0);
       transition-duration: 200ms;
       transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -47,11 +55,17 @@
   </style>
   <body>
     <div class="container">
+      <div class="box" type="text">
+        <p>Box</p>
+      </div>
       <div class="box with-will-change" type="text">
         <p>with will change</p>
       </div>
-      <div class="box" type="text">
-        <p>without will change</p>
+      <div class="box with-backface-visibility" type="text">
+        <p>with backface visibility</p>
+      </div>
+      <div class="box with-translate3d" type="text">
+        <p>with translate3d</p>
       </div>
     </div>
   </body>
