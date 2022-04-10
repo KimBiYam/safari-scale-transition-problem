@@ -41,6 +41,10 @@
       transform: scaleX(1) translate3d(0, 0, 0);
     }
 
+    .with-translate-x:hover::after {
+      transform: scaleX(1) translateX(0);
+    }
+
     .box::after {
       border-bottom: 2px solid black;
       bottom: -10px;
@@ -69,6 +73,9 @@
       </div>
       <div class="box with-translate-3d" type="text">
         <p>with translate3d</p>
+      </div>
+      <div class="box with-translate-x" type="text">
+        <p>with translateX</p>
       </div>
     </div>
   </body>
