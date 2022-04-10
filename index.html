@@ -11,6 +11,7 @@
       display: flex;
       gap: 16px;
     }
+
     .box {
       display: flex;
       align-items: center;
@@ -21,23 +22,25 @@
       position: relative;
     }
 
-    .with-will-change {
-      will-change: transform;
-    }
-
-    .with-backface-visibility {
-      backface-visibility: unset;
-      -webkit-backface-visibility: hidden;
-    }
-
-    .with-translate3d {
-      transform: unset;
-      -webkit-transform: translate3d(0, 0, 0);
-    }
-
-    .box:hover::after {
+    .default:hover::after {
       transform: scaleX(1);
     }
+
+    .with-will-change:hover::after {
+      will-change: transform;
+      transform: scaleX(1);
+    }
+
+    .with-backface-visibility:hover::after {
+      backface-visibility: unset;
+      -webkit-backface-visibility: hidden;
+      transform: scaleX(1);
+    }
+
+    .with-translate-3d:hover::after {
+      transform: scaleX(1) translate3d(0, 0, 0);
+    }
+
     .box::after {
       border-bottom: 2px solid black;
       bottom: -10px;
@@ -55,8 +58,8 @@
   </style>
   <body>
     <div class="container">
-      <div class="box" type="text">
-        <p>Box</p>
+      <div class="box default" type="text">
+        <p>Box default</p>
       </div>
       <div class="box with-will-change" type="text">
         <p>with will change</p>
@@ -64,7 +67,7 @@
       <div class="box with-backface-visibility" type="text">
         <p>with backface visibility</p>
       </div>
-      <div class="box with-translate3d" type="text">
+      <div class="box with-translate-3d" type="text">
         <p>with translate3d</p>
       </div>
     </div>
